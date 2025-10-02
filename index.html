@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="login-page" class="page active">
+        <div class="login-card">
+            <h2>Welcome to QuizMaster</h2>
+            <input type="text" id="username" placeholder="Enter your name">
+            <button onclick="login()">Login</button>
+        </div>
+    </div>
+
+    <!-- Home Page -->
+    <div id="home-page" class="page">
+        <header>
+            <h1>QuizMaster Dashboard</h1>
+            <button onclick="logout()">Logout</button>
+        </header>
+
+        <!-- Profile Card -->
+        <div class="profile-card">
+            <h2 id="profile-name">Name</h2>
+            <p>Completed Quizzes: <span id="completed-quizzes">0</span></p>
+            <p>Badges Earned: <span id="badges-earned">0</span></p>
+            <div class="progress-container">
+                <label>Overall Progress</label>
+                <div class="progress-bar">
+                    <div id="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Topics -->
+        <div class="quiz-container">
+            <div class="quiz-card" onclick="startQuiz('general')">
+                <h3>General Knowledge</h3>
+            </div>
+            <div class="quiz-card" onclick="startQuiz('science')">
+                <h3>Science</h3>
+            </div>
+            <div class="quiz-card" onclick="startQuiz('english')">
+                <h3>English</h3>
+            </div>
+            <div class="quiz-card" onclick="startQuiz('computer')">
+                <h3>Computer / IT</h3>
+            </div>
+            <div class="quiz-card" onclick="startQuiz('current')">
+                <h3>Current Affairs</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Page -->
+    <div id="quiz-page" class="page">
+        <div class="quiz-card-container">
+            <div class="quiz-header">
+                <h2 id="quiz-topic"></h2>
+                <div class="timer" id="timer">30</div>
+            </div>
+            <div id="question-container">
+                <p id="question-text"></p>
+                <div class="options" id="options"></div>
+            </div>
+            <button id="next-btn" onclick="nextQuestion()">Next</button>
+        </div>
+    </div>
+
+    <!-- Result Page -->
+    <div id="result-page" class="page">
+        <div class="result-card">
+            <h2>Quiz Completed!</h2>
+            <p id="score-text"></p>
+            <p id="feedback-text"></p>
+            <p>Badge Earned: <span id="badge-text"></span></p>
+            <button onclick="goHome()">Go Home</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
